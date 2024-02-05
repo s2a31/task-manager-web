@@ -275,7 +275,6 @@ select {
 
 .home-btn {
     display: none;
-    width: 20%;
     background-color: #4caf50;
     color: white;
     padding: 14px 20px;
@@ -309,7 +308,6 @@ select {
 }
 
 .about-page {
-    font-size: 1.3rem;
     line-height: 1.6;
     background-image: linear-gradient(to bottom, #dbecd3 0%, #5ab660 50%, #dbecd3 100%);
     padding: 5%;
@@ -474,6 +472,9 @@ select {
     .add-form,
     .update-form {
         max-width: 500px;
+    }
+    .about-page {
+        font-size: 1.3rem;
     }
 }
 
