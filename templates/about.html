@@ -1,0 +1,39 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+    <!-- Main Content Container -->
+    <div class="container about-page">
+        <!-- About Page Header -->
+        <div class="header">
+            <h1>About the Task Manager Application</h1>
+        </div>
+        <!-- Introduction Paragraph -->
+        <p>This Task Manager, created by Szabolcs Balogh, is more than just a coding project; it is a demonstration of practical skill in building dynamic web applications. Developed using Flask, a powerful micro web framework in Python, it highlights my understanding of both front-end and back-end development.</p>
+
+        <!-- Core Features Section -->
+        <h2>Core Features</h2>
+        <ul>
+            <li><strong>User Authentication</strong>: Utilizing Flask-Bcrypt for secure password hashing, the application ensures safe user registration and login processes.</li>
+            <li><strong>Database Integration</strong>: By integrating MySQL, a robust and scalable database, it efficiently handles user and task data.</li>
+            <li><strong>Task Management</strong>: Users can add, update, and delete tasks, each with attributes like name, description, due date, and status.</li>
+            <li><strong>Interactive UI</strong>: The front-end design, enhanced with Bootstrap and custom CSS, offers a responsive and user-friendly interface.</li>
+            <li><strong>JavaScript Enhancements</strong>: The use of JavaScript for features like drag-and-drop functionality and real-time updates enhances user experience.</li>
+        </ul>
+
+        <!-- Technical Aspects Section -->
+        <h2>Technical Aspects</h2>
+        <ul>
+            <li><strong>Flask Session Management</strong>: Ensures a secure and interactive user experience.</li>
+            <li><strong>MySQL Database</strong>: A powerful and efficient choice for data storage, providing robust management of user and task information.</li>
+            <li><strong>Responsive Design</strong>: Ensures compatibility with various devices, enhancing accessibility.</li>
+            <li><strong>Security Measures</strong>: Flask's secure session handling, coupled with bcrypt for password hashing, adds robust security layers.</li>
+        </ul>
+
+        <!-- Learning Journey Paragraph -->
+        <h2>Learning Journey</h2>
+        <p>This project is a milestone in my journey of transitioning from tourism to IT. It reflects my growth in the IT field and my commitment to continuous learning through platforms like Udemy, Pluralsight, and CS50.</p>
+
+        <!-- Return to Home Button -->
+        <a href="/" class="btn home-btn">Home</a>
+    </div>
+{% endblock %}

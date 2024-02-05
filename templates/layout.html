@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <!-- Head Section: Contains meta information, external links, and the page title -->
+    <head>
+        <!-- Character Set Declaration -->
+        <meta charset="UTF-8" />
+        <!-- Viewport settings for responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap CSS for styling and layout -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <!-- Google Fonts for custom font -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <!-- Custom CSS file link -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+        <!-- Title of the Web Page -->
+        <title>Task Manager</title>
+    </head>
+
+    <!-- Body Section: Contains the main content of the page -->
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-md">
+            <!-- Conditional rendering for different user states -->
+            {% if session.user_id and is_main_route %}
+                <!-- Navbar for logged-in users on the main route -->
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">{{ username }}'s Task Manager</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mt-2">
+                            <li class="nav-item">
+                                <a class="nav-link rounded-3" href="/about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link rounded-3" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% elif is_about_route or is_update_route %}
+                <!-- Navbar for logged-in users on about or update routes -->
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">{{ username }}'s Task Manager</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mt-2">
+                            <li class="nav-item">
+                                <a class="nav-link rounded-3" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link rounded-3" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Navbar for users who are not logged in -->
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Task Manager</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mt-2">
+                            <li class="nav-item">
+                                <a class="nav-link rounded-3" href="/register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link rounded-3" href="/login">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+        </nav>
+
+        <!-- Flash Messages: Display messages to the user -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Main Content Area: This will be overridden by child templates -->
+        {% block body %} {% endblock %}
+
+        <!-- Footer Section -->
+        <footer class="footer">&copy; Created by Szabolcs Balogh 2024</footer>
+        <!-- Bootstrap JavaScript Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- Custom JavaScript File -->
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>

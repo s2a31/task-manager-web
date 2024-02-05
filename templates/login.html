@@ -1,0 +1,36 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+    <!-- Login Page Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Login</h1>
+        </div>
+
+        <!-- Login Form -->
+        <form action="/login" method="post" class="login-form">
+            <!-- Username Input Field -->
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input autofocus type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="on" required />
+            </div>
+
+            <!-- Password Input Field -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="on" required />
+
+                <!-- Toggle Password Visibility Icon -->
+                <span id="togglePassword">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+
+            <!-- Login Button -->
+            <div class="d-flex justify-content-center">
+                <button type="submit" id="submit" class="btn">Login</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

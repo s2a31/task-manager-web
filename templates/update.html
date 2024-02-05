@@ -1,0 +1,61 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Update Task Page Header -->
+        <div class="header">
+            <h1>Update Task</h1>
+        </div>
+
+        <!-- Task Update Section -->
+        <div class="section">
+            <!-- Update Form -->
+            <form action="/update/{{ task.id }}" method="post" class="update-form mx-auto">
+                <!-- Task Name Input Field -->
+                <div class="mb-3">
+                    <label for="tname" class="form-label">Task Name</label>
+                    <input type="text" name="tname" id="tname" class="form-control" value="{{ task.tname }}" required/>
+                </div>
+
+                <!-- Description Input Field -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" rows="3" required>{{ task.description }}</textarea>
+                </div>
+
+                <!-- Date Input Field -->
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" name="date" id="date" class="form-control" value="{{ task.date }}" required/>
+                </div>
+
+                <!-- Status Radio Buttons -->
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <!-- Pending Status Option -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="status" id="statusPending" value="Pending" {% if task.status == 'Pending' %} checked {% endif %} required>
+                        <label class="form-check-label" for="statusPending">Pending</label>
+                    </div>
+                    <!-- In Progress Status Option -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="status" id="statusInProgress" value="In Progress" {% if task.status == 'In Progress' %} checked {% endif %}>
+                        <label class="form-check-label" for="statusInProgress">In Progress</label>
+                    </div>
+                    <!-- Completed Status Option -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="status" id="statusCompleted" value="Completed" {% if task.status == 'Completed' %} checked {% endif %}>
+                        <label class="form-check-label" for="statusCompleted">Completed</label>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="mb-3 text-center d-flex justify-content-center">
+                    <a href="/" class="btn cancel-btn">Cancel</a>
+                    <button type="submit" class="btn update-btn">Update Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

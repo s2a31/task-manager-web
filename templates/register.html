@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!-- Registration Page Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Register</h1>
+        </div>
+
+        <!-- Registration Form -->
+        <form action="/register" method="post" class="register-form">
+            <!-- Username Input Field -->
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input autofocus type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="on" required />
+            </div>
+
+            <!-- Password Input Field -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="on" required />
+                
+                <!-- Toggle Password Visibility Icon -->
+                <span id="togglePassword">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+
+            <!-- Password Strength Indicator -->
+            <div class="mb-3" id="password-check">
+                <div id="password-strength" class="progress">
+                    <div id="password-strength-bar" class="progress-bar"></div>
+                </div>
+                <small id="password-strength-text" class="form-text text-muted"></small>
+            </div>
+
+            <!-- Register Button -->
+            <div class="d-flex justify-content-center">
+                <button type="submit" id="submit" class="btn">Register</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
